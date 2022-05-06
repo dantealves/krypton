@@ -1,4 +1,5 @@
 <!-- Static navbar -->
+<link rel="stylesheet" href="./globalstyles.css">
 <nav x-data="initNavbar()" class="navbar is-light" :class="{
         'is-dark-mobile': mobileOpen,
         '': !mobileOpen
@@ -6,9 +7,8 @@
     <div class="container">
         <!-- Brand -->
         <div class="navbar-brand">
-            <a href="index.html" class="navbar-item">
-                <img class="rotating" src="/img/logo/krypton.svg" alt="">
-                <span class="brand-name">Krypton</span>
+            <a href="index.html" class="navbar-item" >
+                <img src="/img/fn-logo/logo.png" class="navbar-item-img" alt="logo" style="width: 50px; height: 80px;">
             </a>
             <!-- Responsive toggle -->
             <div class="navbar-burger" @click="openMobileMenu()">
@@ -34,34 +34,26 @@
             <div class="navbar-end">
                 <!-- Menu item -->
                 <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="token.html">Token</a>
+                    <a class="is-centered-responsive" href="token.html">Sobre MS TECH</a>
                 </div>
                 <!-- Menu item -->
                 <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="ico.html">Ico</a>
+                    <a class="is-centered-responsive" href="ico.html">Produtos</a>
                 </div>
                 <!-- Menu item -->
                 <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="roadmap.html">Roadmap</a>
+                    <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
                 </div>
                 <!-- Menu item -->
                 <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="blog.html">Media</a>
+                    <a class="is-centered-responsive" href="blog.html">Ouvidoria</a>
+                </div>
+                <div class="navbar-item is-nav-link">
+                    <a class="is-centered-responsive" href="blog.html">Tire suas dúvidas</a>
                 </div>
                 <!-- Menu item -->
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="#" target="_blank">
-                        <img class="telegram" src="/img/logo/telegram.svg" alt="">
-                        Telegram
-                    </a>
-                </div>
                 <!-- Sign up -->
-                <div class="navbar-item">
-                    <a href="#" class="button k-button k-primary raised has-gradient slanted">
-                        <span class="text">Register</span>
-                        <span class="front-gradient"></span>
-                    </a>
-                </div>
+                
             </div>
         </div>
     </div>
