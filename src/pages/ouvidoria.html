@@ -1,0 +1,85 @@
+---
+layout: default
+title: Media
+---
+
+<div class="media-wrapper">
+    <!-- Landing page Hero -->
+    <section class="hero">
+        <div class="hero-head">
+
+            <!-- Cloned navbar -->
+            {{> navbar-clone}}
+
+            <!-- Static navbar -->
+            {{> navbar}}
+
+        </div>
+
+        <!-- Hero Image and Title -->
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+
+                    <!-- Landing page Title -->
+                    <div class="column is-5 is-offset-1 landing-caption">
+                        <div class="divider"></div>
+                        <h1 class="title is-1 is-light is-semibold is-spaced main-title">Ouvidoria</h1>
+                        <h2 class="subtitle is-6 is-light is-thin">
+                            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+                        </h2>
+
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-6">
+                        <figure class="image">
+                            <img src="/img/Creative_process_SVG.svg" alt="chat">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+<section class="hero section is-medium has-big-dark-gradient is-desktop is-centered" style="justify-content: center;display: flex;align-items: center;"> 
+    <div class="column is-centered">
+        <h3 class="title is-3 is-light is-semibold is-spaced">Formulário para ouvidoria</h3>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Nome Completo*&nbsp;</label>
+            <div class="control" style="width: 450px;">
+              <input class="input is-sucess" type="text" placeholder="Nome...">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Endereço*&nbsp</label>
+            <div class="control" style="width: 450px;">
+              <input class="input is-normal" type="text" placeholder="Endereço...">
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Email*&nbsp</label>
+            <div class="control" style="width: 450px;">
+              <input class="input is-normal" type="email" pattern="@gmail.com" placeholder="Email..." required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Telefone*&nbsp</label>
+            <div class="control" style="width: 450px;">
+              <input class="input is-normal" type="tel" id="phone" name="phone" placeholder="Telefone" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Estado*&nbsp</label>
+            <div class="control" style="width: 450px;">
+              <input class="input is-normal" type="tel" placeholder="Estado" required>
+            </div>
+        </div>
+        <div class="field">
+            <label class="label" style="color: white; font-family: 'Cabin';">Mensagem</label>
+            <div class="control" style="width: 450px;">
+                <textarea class="textarea" placeholder="Deixe sua mensagem"></textarea>
+            </div>
+        </div>
+        <button style="font-family: 'Cabin';" class="button" type="submit">Enviar</button>
+    </div>
+</section>

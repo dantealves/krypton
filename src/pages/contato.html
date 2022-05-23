@@ -1,0 +1,115 @@
+---
+layout: default
+title: Media
+---
+
+<div class="media-wrapper">
+    <!-- Landing page Hero -->
+    <section class="hero">
+        <div class="hero-head">
+
+            <!-- Cloned navbar -->
+            {{> navbar-clone}}
+            
+            <!-- Static navbar -->
+            {{> navbar}}
+
+        </div>
+
+        <!-- Hero Image and Title -->
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+
+                    <!-- Landing page Title -->
+                    <div class="column is-5 is-offset-1 post-caption">
+                        <div class="divider"></div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">Entre em contato conosco</h1>
+
+
+
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-5">
+                        <figure class="image">
+                            <img class="side-featured" src="/img/Chat_SVG.svg" alt="">
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero section is-medium has-big-dark-gradient is-desktop is-centered"
+        style="justify-content: center;display: flex;align-items: center;">
+        <div class="column is-centered">
+            <h3 class="title is-3 is-light is-semibold is-spaced">Formulário para contato</h3>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Nome Completo*&nbsp;</label>
+                <div class="control" style="width: 450px;">
+                    <input class="input is-sucess" type="text" placeholder="Nome...">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Endereço*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                    <input class="input is-normal" type="text" placeholder="Endereço...">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Email*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                    <input class="input is-normal" type="email" pattern="@gmail.com" placeholder="Email..." required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Telefone*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                    <input class="input is-normal" type="tel" id="phone" name="phone" placeholder="Telefone" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Estado*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                    <input class="input is-normal" type="tel" placeholder="Estado" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Mensagem</label>
+                <div class="control" style="width: 450px;">
+                    <textarea class="textarea" placeholder="Deixe sua mensagem"></textarea>
+                </div>
+            </div>
+            <button style="font-family: 'Cabin';" class="button" type="submit">Enviar</button>
+        </div>
+        <br>
+        <div class="divider is-centered"></div>
+        <h2 class="title is-light is-semibold has-text-centered is-spaced">Formas de contato</h2>
+        <div class="content-wrapper is-large">
+            <div class="columns is-vcentered is-multiline">
+                <ul class="subtitle is-6 is-light has-text-centered is-compact">
+                    <a href="https://www.notalegal.df.gov.br/">
+                        <li class="ul-item contac">Site da empresa</li>
+                    </a>
+                    <a href="https://receita.fazenda.df.gov.br/aplicacoes/perguntasfrequentes/perguntasfrequentes.cfm">
+                        <li class="ul-item contac">FAQ - perguntas frequentes</li>
+                    </a>
+                    <a href="https://www.ouv.df.gov.br/#/">
+                        <li class="ul-item contac">Ouvidoria</li>
+                    </a>
+                    <a href="https://www.ouv.df.gov.br/#/registro-manifestacao/1/Den%C3%BAncia/true">
+                        <li class="ul-item contac">Denuncias</li>
+                    </a>
+                    <a href="https://www.notalegal.df.gov.br/contalegal">
+                        <li class="ul-item contac">Compliance</li>
+                    </a>
+                    <li class="ul-item contac">Email para suporte: contalegal@economia.df.gov.br</li>
+                    <li class="ul-item contac">Emails automáticos: naoresponda@economia.df.gov.br</li>
+                    <li class="ul-item contac">Central de atendimento: 3003-4004</li>
+                    <li class="ul-item contac">Antendimento por texto via WhatsApp</li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    </section>
+</div>

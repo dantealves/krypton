@@ -1,4 +1,7 @@
 <!-- Static navbar -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./globalstyles.css">
 <nav x-data="initNavbar()" class="navbar is-light" :class="{
         'is-dark-mobile': mobileOpen,
@@ -32,30 +35,42 @@
                 '': !mobileOpen
             }">
             <div class="navbar-end">
-                <!-- Menu item -->
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="token.html">Sobre MS TECH</a>
+                <div class="dropdown is-active">
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <div class="navbar-item is-nav-link">
+                            <a href="" class="navbar-link">
+                                SOBRE MS TECH
+                            </a>
+                            <div class="navbar-dropdown">
+                                <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal" class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                <a style="color: #1c004c" href="termos.html" class="navbar-item">Termos de uso e privacidade</a>
+                                <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                <a style="color: #1c004c" href="" class="navbar-item">Reonhecimento</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                        <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                        <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                    </div>
+                    <!-- Menu item -->
+                    <div class="navbar-item is-nav-link">
+                        <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                    </div>
+                    <div class="navbar-item is-nav-link">
+                        <a class="is-centered-responsive" href="contato.html">Contato</a>
+                    </div>
+                    <!-- Menu item -->
+                    <!-- Sign up -->
                 </div>
-                <!-- Menu item -->
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="ico.html">Produtos</a>
-                </div>
-                <!-- Menu item -->
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
-                </div>
-                <!-- Menu item -->
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="blog.html">Ouvidoria</a>
-                </div>
-                <div class="navbar-item is-nav-link">
-                    <a class="is-centered-responsive" href="blog.html">Tire suas dúvidas</a>
-                </div>
-                <!-- Menu item -->
-                <!-- Sign up -->
-                
             </div>
         </div>
     </div>
 </nav>
 <!-- /Static navbar -->
+
