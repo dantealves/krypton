@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MS Fintech</title>
+
+    <link rel="icon" type="image/png" href="/img/fn-logo/logo.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="dark-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero is-fullheight is-transparent">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- NAVBAR QUANDO HÁ SCROLL -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="/img/fn-logo/logo.png" />
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <!-- TODO:anexar os links certos e adequar as outras páginas -->
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                    <div class="navbar-item is-nav-link">
+                                        <a href="" class="navbar-link">
+                                            SOBRE MS TECH
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal" class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                            <a style="color: #1c004c" href="termos.html" class="navbar-item">Termos de uso e privacidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Reconhecimento</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                                </div>
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="contato.html">Contato</a>
+                                </div> 
+                                </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="./globalstyles.css">
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="/img/fn-logo/logo.png" class="navbar-item-img" alt="logo" style="width: 50px; height: 80px;">
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <div class="dropdown is-active">
+                                    <div class="navbar-item has-dropdown is-hoverable">
+                                        <div class="navbar-item is-nav-link">
+                                            <a href="" class="navbar-link">
+                                                SOBRE MS TECH
+                                            </a>
+                                            <div class="navbar-dropdown">
+                                                <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal"
+                                                    class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                                <a style="color: #1c004c" href="termos.html" class="navbar-item">Termos de uso e
+                                                    privacidade</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Reonhecimento</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                                    </div>
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="contato.html">Contato</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <!-- Sign up -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+    
+            <!-- Animated particles -->
+            <div x-data="initHero()" x-init="initParticles()" id="particles-js"></div>
+    
+            <!-- Hero Image and Title -->
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+    
+                        <!-- Landing page Title -->
+                        <div class="column is-5 landing-caption">
+                            <h1 class="title is-1 is-light is-semibold is-spaced main-title">Somos o futuro da tecnologia em finanças.</h1>
+                            <h2 class="subtitle is-5 is-light is-thin">
+                                MS Fintech é sobre modernidade em tecnologias financeiras.
+                            </h2>
+                            <!-- CTA -->
+                        </div>
+                        <!-- Hero image -->
+                        <div class="column is-7">
+                            <figure class="image">
+                                <img src="/img/fintech (1).svg" alt="fintech">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Hero footer -->
+            <div class="hero-foot">
+                <div class="container">
+                    <div class="tabs is-centered">
+                        <!-- Client / partner list -->
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- /Landing page Hero -->
+    
+        <!-- Icon Features section -->
+        <section id="start" class="section is-transparent is-relative">
+            <!-- Container -->
+            <div class="container">
+    
+                <!-- Content wrapper -->
+                <div class="content-wrapper is-medium">
+                    <div class="columns is-vcentered">
+                        <!-- Feature -->
+                        <div class="column is-4">
+                            <div class="feature">
+                            </div>
+                        </div>
+                        <!-- Feature -->
+                        <div class="column is-4">
+                            <div class="feature">
+                            </div>
+                        </div>
+                        <!-- Feature -->
+                    </div>
+                </div>
+                <!-- Content wrapper -->
+            </div>
+            <!-- /Container -->
+        </section>
+        <!-- /Icon Features section -->
+    
+        <!-- Side Features section -->
+        <section id="big-gradient" class="section is-transparent">
+            <!-- Container -->
+            <div class="container">
+                <!-- Divider -->
+                <div class="divider is-centered"></div>
+                <!-- Title -->
+                <h2 class="title is-light is-semibold has-text-centered is-spaced">Nossos serviços</h2>
+                <!-- Content wrapper -->
+                <div class="content-wrapper is-large">
+                    <div class="columns is-vcentered">
+    
+                        <!-- Feature content -->
+                        <div class="column is-5 is-offset-1">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light"><img src="/img/icons/checkout-counter.png" alt=""> <span>MarketPlace</span></h3>
+                                <div class="divider is-long"></div>
+                                <p class="is-light">Oferecemos solução de MarkePlace personalizado para seu negócio, com grande oportunidade de vendas para as lojas. Estar em um MarketPlace, é colocar sua empresa em uma audiência elevada, agregando em média, 40 milhões de potenciais compradores, onde você amplia sua possibilidade de novos clientes realmente interessados no seu produto.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image -->
+                        <div class="column is-7">
+                            <img class="side-feature" src="/img/Online_shopping_SVG.svg" alt="">
+                        </div>
+                    </div>
+    
+                    <div class="columns is-vcentered">
+                        <!-- Feature image desktop -->
+                        <div class="column is-7 is-hidden-mobile">
+                            <img class="side-feature" src="/img/Online_banking_SVG.svg" alt="">
+                        </div>
+    
+                        <!-- Feature content -->
+                        <div class="column is-5">
+                            <div class="side-feature-content">
+    
+                                <h3 class="title is-4 is-light"><img src="/img/icons/ico/wallet.svg" alt=""> <span>Carteira digital</span></h3>
+                                <div class="divider is-long"></div>
+                                <p class="is-light">Em um ecosistema digital guiado pela praticidade, oferecemos soluções de carteira digital. Gerando uma experiencia de usuário inegualável no mercado para cada um de nossos clientes.</p>
+                            </div>
+                        </div>
+    
+                        <!-- Feature image only for mobile -->
+                        <div class="column is-7 is-hidden-desktop is-hidden-tablet">
+                            <img class="side-feature" src="/img/illustrations/blockchain-blocks.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="columns is-vcentered">        
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Company section -->
+        <section class="section is-medium has-big-dark-gradient">
+            <!-- Container -->
+            <div class="container">
+                <!-- Divider -->
+                <div class="divider is-centered"></div>
+                <!-- Title & subtitle -->
+                    <h2 class="title is-light is-semibold has-text-centered is-spaced">FAQ</h2>
+                    <h4 class="subtitle is-6 is-light has-text-centered is-compact">Perguntas e respostas mais frequentes sobre nosssas soluções</h4>
+    
+                    <!-- Content wrapper -->
+                    <div class="content-wrapper is-large">
+                        <div class="columns">
+                            <div class="column is-5 is-offset-1">
+    
+                                <!-- Accordion -->
+                                <div class="accordion">
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle1" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle1">
+                                            Quando devo optar pela conta do Conta Legal?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>A Conta Conta Legal é perfeita para você que necessita de serviços bancários, como transferências TED e PIX, pagamentos de contas, impostos, consultas de notas fiscais, mas que não encontra nos bancos tradicionais a conveniência e praticidade que precisa. Seja para você ou para o seu negócio, a Conta do Conta Legal irá suprir todas as suas necessidades de movimentação financeira.
+                                            </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle2" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle2">
+                                            O que preciso fazer oara abrir minha Conta do Conta Legal? ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Para abrir a sua nova conta PF (pessoa física), basta que você baixe, em seu smartphone, o aplicativo Conta Legal, seja na Google Play ou na App Store. Acesse o aplicativo com o seu usuário e senha de 8 (oito) dígitos do Nota Legal DF, caso não tenha acesso, clique em “Registre-se no Nota Legal”, você será redirecionado para o site do Nota Legal DF, faça o preenchimento do formulário e siga o passo a passo. O processo de envio de documentos e informações dura menos de cinco minutos, e a conta será aberta em poucos dias. </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle3" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle3">
+                                            Quais são os critérios para a abertura da minha nova conta ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Os critérios para que abramos a sua conta pessoa física são:
+                                                <br />
+                                                • Antes de tudo, o usuário deverá ter CPF cadastrado ao Nota Legal DF somente dessa forma o usuário conseguirá acessar os serviços do Conta Legal, a senha de acesso ao aplicativo será a mesma do Nota Legal.
+                                                <br />
+                                                • Ter alcançado a maioridade e ser responsável por seus atos financeiros.
+                                                <br />
+                                                • Ter o cadastro de pessoa física regular junto à Receita Federal;
+                                                <br />
+                                                • Apresentação de documento de identificação – CNH ou RG com CPF;
+                                                <br />
+                                                • Ter um comprovante de residência válido. </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle4" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle4">
+                                            Qual é o tipo de conta que o Conta Legal disponibiliza aos seus clientes pessoa física ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Ao abrir uma Conta no Conta Legal, você obterá uma conta corrente. É uma conta digital completa, com número de banco, agência e conta, para total liberdade de suas movimentações financeiras. O Conta Legal possui uma parceria estratégica com o S3 BANK que garante o melhor cuidado e segurança dos seus recursos financeiros. Por este motivo, o número de banco que usamos no Conta Legal para o domicílio de nossas contas é o mesmo do S3 BANK, que é o banco número 655.
+    
+                                            </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle5" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle5">
+                                            O Conta Legal cobra tarifas ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Sim e é dessa forma que conseguimos oferecer a você soluções bancárias mais completas para você ou para o seu negócio. É a nossa forma de continuarmos a investir em inovação, em recursos que garantam mais praticidade e rapidez em suas transações e, ainda, em um futuro mercado de crédito mais justo para todos. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Accordion -->
+                            </div>
+    
+    
+                            <div class="column is-5">
+    
+                                <!-- Accordion -->
+                                <div class="accordion">
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle6" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle6">
+                                            Quais são os serviços tarifados da Conta Conta Legal ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Você pode conhecer todas as nossas <a href="msfin.tech/tarifas">tarifas</a> em nossa página dedicada, sem pegadinhas:
+    
+                                                 </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle7" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle7">
+                                            Como depositar recursos na minha Conta Conta Legal ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>O depósito de recursos, ou “recarga” da sua conta pode ser feita de diferentes formas. Veja quais são elas:
+                                                <br />
+                                                • Depósito: basta que você gere um boleto bancário em sua conta com o valor que deseja depositar. Depois, imprima-o e pague em qualquer banco, ou use o app de outro banco ou um caixa eletrônico.
+                                                <br />
+                                                • Transferências PIX: você tem a possibilidade de criar uma chave PIX, Compartilhe sua chave com quem vai depositar o recurso. Disponível todos os dias da semana sem exceção, e sem limitação de horário.
+                                                <br />
+                                                • Transferência bancária: utilizando os dados da sua conta, basta enviar um TED ou DOC através de outro banco. </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle8" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle8">
+                                            Posso pagar qualquer tipo de boleto com a minha Conta Conta Legal ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Sim! você pode realizar o pagamento de boletos e de contas, como aquelas de energia, água, impostos com código de barras, telefone ou gás. </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle9" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle9">
+                                            Quais são os horários para envio de transferências, TED e pagamentos de conta ou boletos ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Você pode fazer esse tipo de transação, por meio do aplicativo Conta Legal seguindo a grade de horários:
+                                                <br />
+                                                • Transferência entre contas Conta Legal: Disponível todos os dias da semana sem exceção, e sem limitação de horário
+                                                <br />
+                                                • Envio de TED: Das 08h00min às 16h30min, de 2ª a 6ª feira, exceto feriados
+                                                <br />
+                                                • Pagamento de boletos de cobrança: Das 08h00min às 20h30min, de 2ª a 6ª feira, exceto feriados
+                                                <br />
+                                                • Transferência PIX: Disponível todos os dias da semana sem exceção, e sem limitação de horário
+                                                <br />
+                                                • Pagamento de contas de consumo ou impostos: Das 08h00min às 16h30min, de 2ª a 6ª feira, exceto feriados
+                                                <br />
+                                                No caso do envio de TED fora do horário da grade, a transação será automaticamente agendada para o próximo dia útil. </p>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Option -->
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle10" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle10">
+                                            Esqueci a senha de acesso da minha Conta Conta Legal ?
+                                        </label>
+                                        <div class="accordion-content">
+                                            <p>Para recuperar a senha de acesso da sua conta, vá até a opção "Acessar conta",clique no botão "Ajuda" e depois clique em “Esqueci minha senha” e siga os passos para poder recuperá-la. </p>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-option">
+                                        <input type="checkbox" id="toggle10" class="accordion-toggle" />
+                                        <label class="accordion-title" for="toggle10">
+                                            De quais formas posso acessar a minha Conta Conta Legal ?
+                                        </label>
+                                        <div class="accordion-content">
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /Accordion -->
+                            </div>
+                        </div>
+                    </div>             
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="logo-footer" src="/img/fn-logo/logo.png" alt="logo-mstech" style="height: 160px; max-width:100% ">
+                    <div class="brand-subtitle">É sobre modernidade em tecnologias financeiras</div>
+                </a>
+            </div>
+            
+    
+            </div>
+            <a 
+            href="https://goo.gl/maps/bDKghLbwjoY6cchS6"
+             class="location-link">
+             São Paulo/SP, na Rua Teodoro Sampaio, nº 399, conjunto 15, Pinheiros – CEP: 05405-000</a>
+            <br>
+            <!-- Made by -->
+            <a href="https://www.notalegal.df.gov.br/politica_de_privacidade.cfm" target="_blank">
+                Termos de uso e privacidade do Conta Legal
+            </a>
+        </div>
+    
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>

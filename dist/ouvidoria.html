@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MS Fintech</title>
+
+    <link rel="icon" type="image/png" href="/img/fn-logo/logo.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    
+    <div class="media-wrapper">
+        <!-- Landing page Hero -->
+        <section class="hero">
+            <div class="hero-head">
+    
+                <!-- Cloned navbar -->
+                <!-- NAVBAR QUANDO HÁ SCROLL -->
+                <nav x-data="initNavbar()"  x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark" :class="{
+                        'is-active': scrolled,
+                        '': !scrolled
+                    }">
+                    <div class="container">
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="/img/fn-logo/logo.png" />
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <!-- Menu item -->
+                                <!-- TODO:anexar os links certos e adequar as outras páginas -->
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                    <div class="navbar-item is-nav-link">
+                                        <a href="" class="navbar-link">
+                                            SOBRE MS TECH
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal" class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                            <a style="color: #1c004c" href="termos.html" class="navbar-item">Termos de uso e privacidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Reconhecimento</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                                </div>
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="contato.html">Contato</a>
+                                </div> 
+                                </div>
+                        </div>
+                    </div>
+                </nav>
+                <!-- /Cloned navbar -->
+                <!-- Static navbar -->
+                <!-- Static navbar -->
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+                <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+                <link rel="stylesheet" href="./globalstyles.css">
+                <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                        'is-dark-mobile': mobileOpen,
+                        '': !mobileOpen
+                    }">
+                    <div class="container">
+                        <!-- Brand -->
+                        <div class="navbar-brand">
+                            <a href="index.html" class="navbar-item">
+                                <img src="/img/fn-logo/logo.png" class="navbar-item-img" alt="logo" style="width: 50px; height: 80px;">
+                            </a>
+                            <!-- Responsive toggle -->
+                            <div class="navbar-burger" @click="openMobileMenu()">
+                                <div class="menu-toggle">
+                                    <span class="icon-box-toggle" :class="{
+                                            'active': mobileOpen,
+                                            '': !mobileOpen
+                                        }">
+                                        <span class="rotate">
+                                            <i class="icon-line-top"></i>
+                                            <i class="icon-line-center"></i>
+                                            <i class="icon-line-bottom"></i>
+                                        </span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Menu -->
+                        <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                                'is-active': mobileOpen,
+                                '': !mobileOpen
+                            }">
+                            <div class="navbar-end">
+                                <div class="dropdown is-active">
+                                    <div class="navbar-item has-dropdown is-hoverable">
+                                        <div class="navbar-item is-nav-link">
+                                            <a href="" class="navbar-link">
+                                                SOBRE MS TECH
+                                            </a>
+                                            <div class="navbar-dropdown">
+                                                <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal"
+                                                    class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                                <a style="color: #1c004c" href="termos.html" class="navbar-item">Termos de uso e
+                                                    privacidade</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                                <a style="color: #1c004c" href="" class="navbar-item">Reonhecimento</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                                    </div>
+                                    <div class="navbar-item is-nav-link">
+                                        <a class="is-centered-responsive" href="contato.html">Contato</a>
+                                    </div>
+                                    <!-- Menu item -->
+                                    <!-- Sign up -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+    
+            <!-- Hero Image and Title -->
+            <div class="hero-body">
+                <div class="container">
+                    <div class="columns is-vcentered">
+    
+                        <!-- Landing page Title -->
+                        <div class="column is-5 is-offset-1 landing-caption">
+                            <div class="divider"></div>
+                            <h1 class="title is-1 is-light is-semibold is-spaced main-title">Ouvidoria</h1>
+                            <h2 class="subtitle is-6 is-light is-thin">
+                                Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...
+                            </h2>
+    
+                        </div>
+                        <!-- Hero image -->
+                        <div class="column is-6">
+                            <figure class="image">
+                                <img src="/img/Creative_process_SVG.svg" alt="chat">
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    <section class="hero section is-medium has-big-dark-gradient is-desktop is-centered" style="justify-content: center;display: flex;align-items: center;"> 
+        <div class="column is-centered">
+            <h3 class="title is-3 is-light is-semibold is-spaced">Formulário para ouvidoria</h3>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Nome Completo*&nbsp;</label>
+                <div class="control" style="width: 450px;">
+                  <input class="input is-sucess" type="text" placeholder="Nome...">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Endereço*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                  <input class="input is-normal" type="text" placeholder="Endereço...">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Email*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                  <input class="input is-normal" type="email" pattern="@gmail.com" placeholder="Email..." required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Telefone*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                  <input class="input is-normal" type="tel" id="phone" name="phone" placeholder="Telefone" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Estado*&nbsp</label>
+                <div class="control" style="width: 450px;">
+                  <input class="input is-normal" type="tel" placeholder="Estado" required>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" style="color: white; font-family: 'Cabin';">Mensagem</label>
+                <div class="control" style="width: 450px;">
+                    <textarea class="textarea" placeholder="Deixe sua mensagem"></textarea>
+                </div>
+            </div>
+            <button style="font-family: 'Cabin';" class="button" type="submit">Enviar</button>
+        </div>
+    </section>
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="logo-footer" src="/img/fn-logo/logo.png" alt="logo-mstech" style="height: 160px; max-width:100% ">
+                    <div class="brand-subtitle">É sobre modernidade em tecnologias financeiras</div>
+                </a>
+            </div>
+            
+    
+            </div>
+            <a 
+            href="https://goo.gl/maps/bDKghLbwjoY6cchS6"
+             class="location-link">
+             São Paulo/SP, na Rua Teodoro Sampaio, nº 399, conjunto 15, Pinheiros – CEP: 05405-000</a>
+            <br>
+            <!-- Made by -->
+            <a href="https://www.notalegal.df.gov.br/politica_de_privacidade.cfm" target="_blank">
+                Termos de uso e privacidade do Conta Legal
+            </a>
+        </div>
+    
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MS Fintech</title>
+
+    <link rel="icon" type="image/png" href="/img/fn-logo/logo.png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+
+<body>
+
+    <div id="pageloader" class="pageloader is-left-to-right is-theme"></div>
+    <div id="infraloader" class="infraloader is-active"></div>    <section class="hero is-fullheight has-big-dark-gradient">
+        <div class="hero-head">
+    
+            <!-- Cloned navbar -->
+            <!-- NAVBAR QUANDO HÁ SCROLL -->
+            <nav x-data="initNavbar()" x-on:scroll.window="scroll()" id="navbar-clone" class="navbar is-fixed is-dark"
+                :class="{
+                    'is-active': scrolled,
+                    '': !scrolled
+                }">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a href="index.html" class="navbar-item">
+                            <img src="/img/fn-logo/logo.png" />
+                        </a>
+                        <!-- Responsive toggle -->
+                        <div class="navbar-burger" @click="openMobileMenu()">
+                            <div class="menu-toggle">
+                                <span class="icon-box-toggle" :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu -->
+                    <div id="cloneNavbarMenu" class="navbar-menu" :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }">
+                        <div class="navbar-end">
+                            <!-- Menu item -->
+                            <!-- TODO:anexar os links certos e adequar as outras páginas -->
+                            <div class="navbar-item has-dropdown is-hoverable">
+                                <div class="navbar-item is-nav-link">
+                                    <a href="#" class="navbar-link">
+                                        SOBRE MS TECH
+                                    </a>
+                                    <div class="navbar-dropdown">
+                                        <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal"
+                                            class="navbar-item is-centered-responsive">Código de ética e Compliance</a>
+                                        <a style="color: #1c004c" href="/src/pages/termos.html"
+                                            class="navbar-item">Termos
+                                            de uso e privacidade</a>
+                                        <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                        <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                        <a style="color: #1c004c" href="" class="navbar-item">Reconhecimento</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                            </div>
+                            <!-- Menu item -->
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                            </div>
+                            <div class="navbar-item is-nav-link">
+                                <a class="is-centered-responsive" href="contato.html">Contato</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- /Cloned navbar -->
+            <!-- Static navbar -->
+            <!-- Static navbar -->
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="./globalstyles.css">
+            <nav x-data="initNavbar()" class="navbar is-light" :class="{
+                    'is-dark-mobile': mobileOpen,
+                    '': !mobileOpen
+                }">
+                <div class="container">
+                    <!-- Brand -->
+                    <div class="navbar-brand">
+                        <a href="index.html" class="navbar-item">
+                            <img src="/img/fn-logo/logo.png" class="navbar-item-img" alt="logo"
+                                style="width: 50px; height: 80px;">
+                        </a>
+                        <!-- Responsive toggle -->
+                        <div class="navbar-burger" @click="openMobileMenu()">
+                            <div class="menu-toggle">
+                                <span class="icon-box-toggle" :class="{
+                                        'active': mobileOpen,
+                                        '': !mobileOpen
+                                    }">
+                                    <span class="rotate">
+                                        <i class="icon-line-top"></i>
+                                        <i class="icon-line-center"></i>
+                                        <i class="icon-line-bottom"></i>
+                                    </span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Menu -->
+                    <div id="navbarMenu" class="navbar-menu light-menu" :class="{
+                            'is-active': mobileOpen,
+                            '': !mobileOpen
+                        }">
+                        <div class="navbar-end">
+                            <div class="dropdown is-active">
+                                <div class="navbar-item has-dropdown is-hoverable">
+                                    <div class="navbar-item is-nav-link">
+                                        <a href="" class="navbar-link">
+                                            SOBRE MS TECH
+                                        </a>
+                                        <div class="navbar-dropdown">
+                                            <a style="color: #1c004c" href="https://www.notalegal.df.gov.br/contalegal"
+                                                class="navbar-item is-centered-responsive">Código de ética e
+                                                Compliance</a>
+                                            <a style="color: #1c004c"
+                                                href="https://www.notalegal.df.gov.br/area.cfm?id_area=747"
+                                                class="navbar-item">Termos de uso e privacidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Certificações</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Qualidade</a>
+                                            <a style="color: #1c004c" href="" class="navbar-item">Reonhecimento</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="produtos.html">Produtos</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="roadmap.html">Consultoria e serviços</a>
+                                </div>
+                                <!-- Menu item -->
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="ouvidoria.html">Ouvidoria</a>
+                                </div>
+                                <div class="navbar-item is-nav-link">
+                                    <a class="is-centered-responsive" href="contato.html">Contato</a>
+                                </div>
+                                <!-- Menu item -->
+                                <!-- Sign up -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- /Static navbar -->
+    
+    
+        </div>
+    
+        <!-- Hero Image and Title -->
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+    
+                    <!-- Landing page Title -->
+                    <div class="column is-5 is-offset-1 post-caption">
+                        <div class="divider"></div>
+                        <h1 class="title is-2 is-light is-semibold is-spaced main-title">Termos de Uso e Privacidade
+                        </h1>
+                    </div>
+                    <!-- Hero image -->
+                    <div class="column is-5">
+                        <figure class="image">
+                            <img class="side-featured" src="/img/Financial_insurance_SVG.svg" alt="">
+                        </figure>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+        <section class="section is-medium has-big-dark-gradient">
+            <div class="container">
+                <!-- Divider -->
+                <div class="divider is-centered"></div>
+                <!-- Title -->
+                <h2 class="title is-light is-semibold has-text-centered is-spaced">
+                    Termos de Uso e Política de privacidade
+                </h2>
+                <p class="is-light is-semibold has-text-centered is-spaced" style="font-family: 'Cabin';">Data da última
+                    atualização: 17/05/2022</p>
+                <!-- Content wrapper -->
+            </div>
+            <div class="container">
+                <div class="divider is-centered"></div>
+                <p class="subtitle is-6 is-light has-text-centered is-compact">Estes Termos de Uso e Política de
+                    privacidade ("Termos") destinam-se a regular o acesso
+                    aos conteúdos do site, aplicativo mobile ou qualquer outro meio de atendimento("Meios Digitais"),
+                    bem como o acesso e a contratação
+                    dos produtos e serviços desenvolvidos, fornecidos e/ou distribuídos ("os Produtos") pela MS TECH
+                    SERVIÇOS FINANCEIROS AUXILIARES
+                    S.A, inscrita no CNPJ sob o nº 26.563.208/0001-02 (www.msfin.tech) - <b>("MS TECH")</b>, conforme
+                    informações disponibilizadas em seu website e de acordo com os contratos celebrados pela MS TECH
+                    e us Usuários (conforme definido abaixo).
+                </p>
+                <br>
+                <p class="subtitle is-6 is-light has-text-centered is-compact">
+                    1. Aspectos Gerais
+                    1.1 Pelos presentes Termos, a MS TECH reafirma seus compromissos com a privacidade e segurança
+                    no tratamento das informações coletadas dos clientes e usuários dos Meios Digitais, bem como dos
+                    contratantes
+                    dos Produtos ofertados pela MS TECH, diretamene e/ou por meio de Instituições Parceiras¹ ("Usuário"
+                    ou "Usuários", quando
+                    individualmente considerado).
+                    <br />
+                    1.2 Estes Termos aplicam-se a todos os Usuários, bem como aos colaboradores, administradores,
+                    fornecedores, terceiros
+                    Instituições Parceiras e todos os demais envolvidos nas atividades da MS TECH que venham a ter
+                    acesso aos Meios Digitais.
+                    <br />
+                    1.3 Os presentes Termos estão disponíveis para leitura, a qualquer momento, através dos Meios
+                    Digitais. A MS TECH se reserva o riteiro de alterar e atualizar os presentes termos, sem a
+                    necessidade de notificação ou comunicação prévia aos Usuários, nos termos da Cláusila 10.4 abaixo.
+                    <br />
+                    1.4 Caso você tenha dúvidas, reclamações, quiser exercer seus direitos relacionados aos seus dados
+                    pessoais ou se comunicar com a MS TECH sobre o disposto nos presentes Termos, você poderá entrar em
+                    contato conosco pelos nossos canais de atendimento ou contatar o nosso encarregado (DPO) pelo e-mail
+                    <b>dpo@msfin.tech</b>
+                    <br />
+                    1.5. A MS TECH não é uma instituição financeira, é uma empresa privada que atua na prestação de
+                    atividades
+                    auxiliares de serviços financeiros, e opera em parceria com instituições de pagamento e banco
+                    custodiante,
+                    depositário e liquidante de recursos de terceiros, devidamente autorizados a funcionar pelo Banco
+                    Central do Brasil.
+                    O Usuário deverá ter acesso, ler e aderir aos termos de uso e de privacidade dos parceiros da MS
+                    TECH, conforme
+                    aplicável, devendo tal adesão ocorrer como parte do processo de acesso aos Meios Digitais ofertados
+                    pela MS TECH.
+                    <br />
+                    1.6. A MS TECH estabeleceu Contrato de Parceria Comercial com o INSTITUTOFECOMÉRCIO DO DISTRITO
+                    FEDERAL
+                    (“IF”), instituição sem fins lucrativos, inscrita no CNPJ nº 01.514.382/0001-34, que por sua vez,
+                    estabeleceu um
+                    Acordo de Cooperação Técnica com o Governo do Distrito Federal (“GDF”), por meio do qual o IF foi
+                    contratado
+                    pelo GDF para fornecer uma plataforma tecnológica a ser voltada para o fomento do mercado de consumo
+                    do
+                    Distrito Federal e consequente exploração comercial de serviços associados, cujo projeto é
+                    denominado como
+                    “CONTA LEGAL”.
+                    <br>
+                    1.7. O CONTA LEGAL é um programa da Secretaria da Economia em parceria com o Instituto Fecomércio,
+                    suportado
+                    por uma plataforma digital desenvolvida pela MS TECH, que engloba uma conta digital e um market
+                    place de
+                    serviços. O objetivo é disponibilizar exclusivamente para os cidadãos do Distrito Federal a
+                    possibilidade da utilização
+                    de seus créditos oriundos do Nota Legal na plataforma digital, gerando facilidades aos
+                    contribuintes, bem como o
+                    fomento do comercio local. Para aderir ao CONTA LEGAL, obrigatoriamente o usuário interessado deverá
+                    ter
+                    cadastro válido no Nota Legal e seguir os passos necessários para a abertura de sua conta digital.
+                    Esta plataforma
+                    não alcança as informações constantes de sistemas corporativos do Distrito Federal, de uso exclusivo
+                    dos servidores
+                    da SEEC/DF.
+    
+                    ¹
+                    Instituição(ões) de pagamento ou financeira com quem a MS TECH tenha celebrado contrato(s) para a
+                    viabilização de oferta de Produtos,
+                    podendo, ademais, tais Instituição(ões) oferecerem seus próprios produtos pelos Meios Digitais.
+                    <br>
+                    2. Aceite aos Termos
+                    <br>
+                    2.1. O Usuário deverá ler, atenta e integralmente, o teor destes Termos e, caso concorde com as suas
+                    disposições,
+                    deverá manifestar seu consentimento livre, expresso, informado e inequívoco com relação ao seu
+                    conteúdo. Este
+                    aceite se dará por meio do clique no botão “Li e aceito os Termos de Uso e a Política de
+                    Privacidade”, no primeiro
+                    acesso do Usuário a um dos Meios Digitais.
+                    <br>
+                    2.1.1. O Usuário reconhece e concorda que, nos termos da legislação em vigor, a não concordância do
+                    Usuário
+                    com as disposições contidas nestes Termos ou inviabilidade de cumprimento das disposições aqui
+                    estabelecidas,
+                    implicará no cancelamento do ou inviabilizará o acesso do Usuário aos conteúdos e serviços
+                    disponibilizados pela
+                    MS TECH.
+                    <br>
+                    2.1.2. Na hipótese de o Usuário reformular seu entendimento sobre as condições estabelecidas nestes
+                    Termos e
+                    passar a discordar das disposições nele previstas, a MS TECH se reserva no direito de encerrar o
+                    relacionamento
+                    comercial e contratual existente com o Usuário.
+                    <br>
+                    2.1.3. O Usuário compreende que tal consentimento poderá ser revogado a qualquer momento, mediante
+                    solicitação a MS TECH, oportunidade em que os seus dados e informações coletados serão excluídos,
+                    exceto caso
+                    seu armazenamento deva ser feito por obrigação legal.
+                    <br>
+                    2.2. O Usuário reconhece ser o único e exclusivo responsável por eventual cadastro realizado nos
+                    Meios Digitais
+                    e pela veracidade dos dados fornecidos a MS TECH quando da realização de seu cadastro e/ou posterior
+                    acesso
+                    aos Meios Digitais. O Usuário, declara reconhecer que a MS TECH não possui qualquer responsabilidade
+                    pela
+                    veracidade dos dados fornecidos, bem como por eventuais danos decorrentes da inexatidão e/ou
+                    desatualização
+                    de referidas informações.
+                    <br>
+                    2.2.1. Ainda, o Usuário compreende que a MS TECH poderá, a seu exclusivo critério, realizar as
+                    buscas que julgar
+                    necessárias para apuração de eventuais dados incorretos, inverídicos ou desatualizados, bem como
+                    solicitar
+                    dados adicionais e/ou documentos que estime serem pertinentes, a fim de conferir as informações
+                    cadastrais
+                    fornecidas pelo Usuário.
+                    <br>
+                    2.2.2. Caso a MS TECH decida checar a veracidade dos dados cadastrais do Usuário, e constate a
+                    existência de
+                    dados incorretos, inverídicos e/ou desatualizados, ou, ainda, caso o Usuário se furte ou se negue a
+                    informar os
+                    dados requeridos, a MS TECH poderá suspender temporária ou definitivamente, a seu critério, o acesso
+                    do
+                    Usuário aos Meios Digitais e o envio de conteúdo publicitário, sem prejuízo de outras medidas que
+                    entender
+                    necessárias e oportunas.
+                    <br>
+                    2.2.3. O Usuário compreende que a MS TECH poderá cobrar tarifas2 por uso de suas plataformas e
+                    Produtos, e
+                    declara a sua concordância ao aceitar os Termos. A MS TECH se reserva o direito de alterar as
+                    tarifas a seu
+                    exclusivo critério. As tarifas poderão ser consultadas no site da MS TECH.
+                    <br>
+                    3. Iformações dos Usuários
+                    <br>
+                    3.1 A MS TECH reúne as informações da seguinte forma:
+                    <br>
+                    (i) Informações fornecidas pelo Usuário – são informações fornecidas pelo próprio Usuário ao
+                    interagir, contratar
+                    ou utilizar quaisquer Produtos oferecidos nos Meios Digitais, tais como:
+                    <br>
+                    - Dados pessoais, por exemplo: nome, CPF, e-mail, endereço, biometria e características físicas
+                    relacionadas com a
+                    biometria do Usuário, e telefone.
+                    <br>
+                    - Dados profissionais e de renda.
+                    (ii) Informações coletadas pela instituição – são informações decorrentes das atividades do Usuário
+                    nos Meios
+                    Digitais, tais como:
+                    <br>
+                    - Quaisquer dados coletados referentes à utilização de produtos ou serviços oferecidos pela MS TECH,
+                    incluindo,
+                    entre outros, as movimentações financeiras, transações, pagamentos, recargas de celular, operações
+                    de débito,
+                    crédito, investimentos, seguros e demais serviços bancários e financeiros.
+                    <br>
+                    - Dados de acesso obtidos pelos dispositivos utilizados pelo Usuário para acessar os Meios Digitais
+                    da MS TECH,
+                    incluindo especificações do dispositivo (marca, versão do sistema operacional e modelo do aparelho),
+                    geolocalização, endereço IP, data, tempo médio de acesso, entre outras.
+                    <br>
+                    - Dados de acesso coletados por cookies e tecnologias semelhantes, para entendimento de como o
+                    Usuário interage
+                    com os Meios Digitais da MS TECH.
+                    (iii) Informações fornecidas por terceiros – são informações coletadas pela MS TECH por meio de
+                    fontes externas:
+                    <br>
+                    - Informações coletadas de fontes externas como, por exemplo, birôs de informação, para validar
+                    dados informados
+                    por Usuários.
+                    <br>
+                    - Dados estatísticos de comportamento dos Usuários nos Meios Digitais, fornecidos por sistemas de
+                    análises de
+                    dados.
+                    <br>
+                    3.2. O Usuário está ciente e concorda com a coleta, armazenamento, produção, recepção, tratamento,
+                    classificação, utilização, acesso, transmissão, arquivamento, processamento, armazenamento,
+                    transferência
+                    internacional de dados (em conformidade com as disposições contidas no artigo 33, da Lei nº
+                    13.709/2018 - Lei
+                    Geral de Proteção de Dados), eliminação e uso das informações enviadas e/ou transmitidas pelo
+                    Usuário, bem
+                    como coletadas pela própria MS TECH ou a ele fornecidas por terceiros, conforme estabelecido nestes
+                    Termos.
+                    <br>
+                    4. Tratamento das informações
+                    <br>
+                    4.1. Todas as informações ativamente fornecidas pelo Usuário, como, por exemplo, nome, dados
+                    pessoais,
+                    biometria e características físicas relacionadas e e-mail, bem como aquelas que são geradas
+                    automaticamente,
+                    como as características do dispositivo de acesso, protocolo de internet (“IP”), informações de
+                    acessos, dados de
+                    geolocalização, histórico de aplicações e dados informados para o login, são recebidas e armazenadas
+                    em ambiente
+                    seguro, na base de dados da MS TECH durante o período de manutenção da conta ou da prestação do
+                    serviço/produto específico.
+                    <br>
+                    4.1.1. A MS TECH declara ao Usuário que o tratamento das informações por ele fornecidas relacionadas
+                    com os
+                    processos de identificação e autenticação de cadastro em sistemas eletrônicos, tem como objetivo
+                    prevenir fraudes
+                    <br>contra os Usuários e obstar a violação de segurança de seus dados.
+                    4.2. A MS TECH serve-se dos dados coletados quando da utilização dos Meios Digitais pelos Usuários,
+                    para (i)
+                    realizar análise estatística; (ii) desenvolver e aprimorar os produtos ofertados; (iii) identificar
+                    as necessidades
+                    específicas de cada Usuário, (iv) validar dos dados biométricos e características físicas
+                    relacionadas a biometria
+                    fornecida, (v) analisar a abertura de conta e oferecimento de produtos e, assim, ofertar produtos
+                    personalizados,
+                    através de campanhas voltadas para cada perfil de Usuário, sendo que os dados coletados poderão,
+                    adicionalmente, ser utilizados pelas Instituições Parcerias para a realização da análise de crédito
+                    dos respectivos
+                    Usuários.
+                    <br>
+                    4.2.1. Os dados obtidos por meio dos dispositivos, como localização e IP, são utilizados pela MS
+                    TECH para
+                    aumentar a segurança das transações, tornando possível a atuação em tempo real em caso de
+                    movimentações
+                    não usuais de cada Usuário.
+                    <br>
+                    4.2.2. A MS TECH também utiliza as informações coletadas para enviar ao Usuário e-mails e
+                    notificações relativas
+                    ao uso dos Meios Digitais, bem como à disponibilidade de novos produtos.
+                    <br>
+                    4.3. O acesso às informações coletadas, nos termos do presente instrumento, é restrito aos
+                    profissionais
+                    autorizados e qualificados que necessitem das mesmas exclusivamente para o desempenho de suas
+                    funções.
+                    <br>
+                    4.4. O Usuário poderá, a qualquer tempo, por meio dos Canais de Atendimento da MS TECH, corrigir ou
+                    atualizar
+                    as informações e dados fornecidos através dos Meios Digitais.
+                    <br>
+                    4.5. O Usuário compreende que todos os dados fornecidos por ele ou coletados pela MS TECH são
+                    considerados
+                    confidenciais pela MS TECH, comprometendo-se este a adotar todas as medidas técnicas e
+                    administrativas aptas a
+                    proteger os dados pessoais, visando, ainda, preservar a segurança de seus sistemas na guarda de tais
+                    dados, entre
+                    eles a observância às diretrizes sobre padrões de segurança estabelecidas no Decreto nº 8.771/2016,
+                    tais como:
+                    <br>
+                    (a) Utilização de métodos padrões de mercado para criptografar e anonimizar os dados coletados, além
+                    de demais
+                    formas padrão de encriptação, para garantir sua inviolabilidade;
+                    <br>
+                    (b) Emprego de softwares de alta tecnologia para proteção contra o acesso não autorizado aos
+                    sistemas da MS
+                    TECH, sendo estes considerados ambientes controlados e de segurança;
+                    <br>
+                    (c) Disponibilização de acesso a locais de armazenamento de dados pessoais apenas a pessoas
+                    previamente
+                    autorizadas, comprometidas ao sigilo de tais dados, inclusive mediante a assinatura de termo de
+                    confidencialidade;
+                    <br>
+                    (d) Aplicação de mecanismos de autenticação de acesso aos registros capazes de individualizar o
+                    responsável pelo
+                    tratamento e acesso dos dados coletados em decorrência da utilização dos Meios Digitais; e
+                    <br>
+                    (e) Manutenção do inventário indicando momento, duração, identidade do funcionário ou do responsável
+                    pelo
+                    acesso e o arquivo objeto, com base nos registros de conexão e de acesso a aplicações, conforme
+                    determinado no
+                    artigo 13 do Decreto nº 8.771/2016.
+                    <br>
+                    4.6. O Usuário compreende, ainda, que a MS TECH poderá compartilhar os dados coletados com
+                    terceiros, nas
+                    hipóteses relacionadas abaixo:
+                    <br>
+                    (a) Quando necessário às atividades comerciais da MS TECH , imprescindível para a prestação do
+                    serviço e/ou
+                    necessário para melhorar a experiência do Usuário com os Produtos oferecidos pela MS TECH , como,
+                    por
+                    exemplo, com empresas de publicidade, profiling, pagamento, dentre outras, ficando desde já
+                    estabelecido que
+                    existirá um acordo de confidencialidade assinado com a respectiva empresa de modo a garantir o
+                    estrito sigilo
+                    das informações, assim como o Usuário poderá, a qualquer momento, requerer o cumprimento do
+                    estabelecido
+                    na Cláusula 5 abaixo;
+                    <br>
+                    (b) As Instituições Parceiras da MS TECH poderão ter acesso aos dados do Usuário para a elaboração
+                    de cotações e
+                    propostas de produtos e serviços financeiros tais como, seguros, empréstimos, financiamentos,
+                    investimentos e
+                    outros. As Instituições Parceiras terão acesso a essas informações apenas quando o Usuário
+                    manifestar interesse
+                    por tais produtos e serviços e solicitar respectivas propostas e cotações. O Usuário deve estar
+                    ciente de que no
+                    momento em que solicitar ou contratar um produto ou serviço das Instituições Parceiras pelos Meios
+                    Digitais, as
+                    suas informações serão tratadas por essas instituições de acordo as suas próprias políticas. O
+                    Usuário declara que
+                    não deve submeter pedidos de propostas e cotações caso não concorde com a forma com a qual as
+                    Instituições
+                    Parceiras tratam as suas informações.
+                    <br>
+                    (c) Para a proteção dos interesses da MS TECH em caso de conflito, inclusive em demandas judiciais;
+                    <br>
+                    (d) Em caso de transações e alterações societárias envolvendo a MS TECH, hipótese em que a
+                    transferência dos
+                    dados será necessária para a continuidade dos serviços ofertados por meio de seus Meios Digitais; ou
+                    <br>
+                    (e) Mediante ordem judicial ou por requerimento de autoridades administrativas que detenham
+                    competência legal
+                    para sua requisição.
+                    <br>
+                    4.7. A MS TECH respeita a regulação de sigilo bancário e não compartilhará informações de seus
+                    Usuários, salvo
+                    quando por determinação legal ou judicial. Toda a transmissão de dados, tratada neste item 4,
+                    acontece em
+                    ambiente seguro, e de forma anônima, ou seja, sem que ocorra a divulgação de informações pessoais
+                    que
+                    possibilitem a identificação dos Usuários.
+                    <br>
+                    4.8. A MS TECH excluirá as informações coletadas quando: (i) a finalidade para a qual a informação
+                    foi coletada seja
+                    alcançada ou quando os dados deixarem de ser necessários ou pertinentes para o alcance desta
+                    finalidade,
+                    conforme finalidades descritas nos presentes Termos; (ii) quando da revogação do consentimento, pelo
+                    Usuário,
+                    nos casos em que este se fizer necessário; ou (iii) mediante determinação de autoridade competente
+                    para tanto.
+                    <br>
+                    4.8.1. O Usuário compreende que a exclusão de determinados dados acarretará no encerramento do
+                    recebimento
+                    dos conteúdos referentes aos Produtos da MS TECH, sem que qualquer indenização lhe seja devida pela
+                    MS TECH,
+                    em razão de tal exclusão
+                    5. Direitos do Usuário em Relação ao Processamento de Dados Pessoais
+                    <br>
+                    5.1. A MS TECH garante ao Usuário, no que diz respeito ao processamento de seus dados pessoais, os
+                    seguintes
+                    direitos:
+                    <br>
+                    (a) A confirmação da existência de tratamento de seus dados pessoais;
+                    <br>
+                    (b) O acesso aos seus dados coletados pela MS TECH através do uso, pelo Usuário, dos Meios Digitais
+                    da MS TECH;
+                    <br>
+                    (c) A correção de seus dados, caso estes estejam incompletos, inexatos ou desatualizados;
+                    <br>
+                    (d) A anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em
+                    desconformidade
+                    <br>
+                    com a legislação brasileira aplicável;
+                    <br>
+                    (e) A portabilidade de seus dados pessoais, para si, mediante requisição expressa feita pelo
+                    Usuário;
+                    <br>
+                    (f) A eliminação dos dados pessoais tratados com o seu consentimento, desde que respeitado o prazo
+                    mínimo de
+                    armazenamento de informações determinado pela legislação brasileira;
+                    <br>
+                    (g) A obtenção de informações sobre entidades públicas ou privadas com as quais a MS TECH
+                    compartilhou seus
+                    dados; e
+                    <br>
+                    (h) revogação de consentimento para tratamento dos dados pessoais.
+                    <br>
+                    6. Relacionamento com terceiros
+                    <br>
+                    6.1. Os presentes Termos dizem respeito somente ao uso dos Meios Digitais da MS TECH, não abrangendo
+                    sites de
+                    terceiros, que eventualmente sejam mencionados em nossas páginas ou àqueles que indiquem nossos
+                    Meios
+                    Digitais em ambiente externo.
+                    <br>
+                    6.2. A MS TECH exigirá que as empresas parceiras prestadoras de serviços cumpram com o seu Código de
+                    Ética e
+                    Política de Segurança da Informação, devendo observar os mesmos padrões de privacidade e de
+                    segurança da
+                    informação seguidos pela MS TECH.
+                    <br>
+                    7. Propriedade Intelectual
+                    <br>
+                    7.1. A MS TECH assegura que as informações, tais como textos, imagens, nome de domínio, marca,
+                    slogan, sons
+                    e/ou aplicativos, softwares e funcionalidades, contidas em seus Meios Digitais estão em conformidade
+                    com a
+                    legislação e os normativos que regulamentam os direitos autorais, marcas registradas e patentes,
+                    sendo vedadas
+                    modificações, cópias, reproduções, citações ou quaisquer outras formas de utilização para fins
+                    comerciais sem o
+                    consentimento prévio e expresso da MS TECH.
+                    <br>
+                    7.2. Todos os textos, imagens, fotografias, marcas, logotipos, ícones, tecnologias, links e demais
+                    conteúdos
+                    audiovisuais ou sonoros disponibilizados nos Meios Digitais da MS TECH, incluindo desenhos gráficos
+                    e códigosfonte, são de propriedade exclusiva da MS TECH, e estão protegidos pelas leis e tratados
+                    internacionais, sendo
+                    vedada sua cópia, reprodução, ou qualquer outro tipo de utilização, ficando os infratores sujeitos
+                    às sanções civis
+                    e criminais correspondentes, nos termos das Leis 9.279/96, 9.609/98 e 9.610/98.
+                    <br>
+                    7.3. Caso o Usuário identifique a violação de direitos relativos à propriedade intelectual, poderá
+                    enviar uma
+                    denúncia por meio dos canais de atendimento da MS TECH para que o este averigue a situação indicada,
+                    e adote
+                    as medidas necessárias para a apuração e resolução de eventual irregularidade.
+                    <br>
+                    8. Isenção de Responsabilidade
+                    <br>
+                    8.1. Além das isenções de responsabilidade indicadas nos presentes Termos, o Usuário se declara
+                    ciente de que a
+                    MS TECH não será responsável:
+    
+                    (a) por toda e qualquer indisponibilidade, erro ou falha apresentados nos Meios Digitais da MS TECH,
+                    bem como
+                    por qualquer defraudação de utilidade que o Usuário possa ter atribuído aos Meios Digitais, pela
+                    falibilidade dos
+                    mesmos, ou por qualquer dificuldade de acesso;
+                    <br>
+                    (b) por erros ou eventuais inconsistências na transmissão de dados, pela qualidade ou
+                    disponibilidade da conexão
+                    de Internet, que impeçam a adequada utilização dos Meios Digitais;
+                    <br>
+                    (c) pela presença de vírus ou demais elementos nocivos nos Meios Digitais, capazes de causar
+                    alterações em seus
+                    sistemas informáticos (software e hardware) ou em documentos eletrônicos armazenados em seus
+                    sistemas
+                    informáticos, eximindo-se a MS TECH de qualquer responsabilidade por eventuais danos e prejuízos
+                    decorrentes
+                    de quaisquer elementos nocivos inseridos por terceiros;
+                    <br>
+                    (d) pelos danos e prejuízos de toda natureza decorrentes do conhecimento que terceiros não
+                    autorizados possam
+                    ter de quaisquer dados fornecidos pelos Meios Digitais, em decorrência de falha exclusivamente
+                    relacionada ao
+                    Usuário ou a terceiros que fujam a qualquer controle razoável da MS TECH; e
+                    <br>
+                    (e) por quaisquer dados e/ou informações inverídicas, desatualizadas ou inexatas, fornecidas pelo
+                    Usuário quando
+                    da realização de seu cadastro nos Meios Digitais.
+                    <br>
+                    8.1.1. O Usuário, adicionalmente, concorda que a MS TECH não será responsável por quaisquer atos
+                    relacionados
+                    com a análise de crédito do Usuário, a concessão de crédito ao Usuário, aprovação de seguros e
+                    manutenção de
+                    contrato(s) estabelecido(s) com Instituições Parceiras, e oferecidos através dos Meios Digitais. O
+                    Usuário declara,
+                    outrossim, que está ciente que MS TECH não é uma instituição financeira, e que escolheu os produtos
+                    ofertados
+                    pelas Instituições Parcerias pelos Meios Digitais de forma independente, de acordo com os termos e
+                    condições
+                    ofertados para tais produtos pelas Instituições Parceiras.
+                    <br>
+                    8.2. O Usuário declara que é único responsável pela guarda, sigilo e utilização do login, token e
+                    senhas cadastrados,
+                    tais credenciais possuem caráter pessoal e intransferível. O Usuário concorda que nunca deverá
+                    compartilhar seus
+                    dados de acesso com outras pessoas, e qualquer prejuízo sofrido em decorrência de tal divulgação ou
+                    uso indevido
+                    por terceiros, com ou sem consentimento, será de sua responsabilidade.
+                    <br>
+                    8.3. No caso da opção do Usuário por solicitar e habilitar um Cartão bandeirado Mastercard, o mesmo
+                    concorda e
+                    declara que é único responsável pela devida guarda do seu cartão, emitido na modalidade física ou
+                    virtual, assim
+                    como pelo sigilo da senha do cartão, número, data de validade e código de segurança garantindo que
+                    tais
+                    informações não sejam utilizadas de forma indevida por terceiros. O Usuário concorda que nunca
+                    deverá
+                    compartilhar os dados do cartão e seus dados de acesso com outras pessoas, e qualquer prejuízo
+                    sofrido em
+                    decorrência de tal divulgação será de sua responsabilidade.
+                    <br>
+                    8.4. No caso da utilização de Cartão Mastercard com tecnologia Contactless (cartão que permite
+                    compras por
+                    aproximação) o usuário declara que está ciente que após desbloqueado, este cartão permite a
+                    realização de
+                    compras pela sua aproximação ao terminal de pagamentos de estabelecimentos comerciais, sem a
+                    digitação da
+                    senha do cartão, e declara que é o único responsável pela devida guarda do cartão e por eventuais
+                    compras
+                    efetuadas no caso de extravio do cartão e falta do bloqueio de segurança.
+                    <br>
+                    9. Sanções
+                    <br>
+                    9.1. Sem prejuízo de outras medidas cabíveis, a MS TECH poderá, a seu exclusivo critério, suspender,
+                    temporária
+                    ou definitivamente, o acesso do Usuário aos Meios Digitais, iniciando as ações legais cabíveis ou
+                    suspendendo a
+                    prestação de seus serviços, se:
+                    <br>
+                    (a) o Usuário descumprir quaisquer das disposições constantes nestes Termos e/ou nas disposições dos
+                    contratos
+                    e documentos que regulam o seu relacionamento com a MS TECH;
+                    <br>
+                    (b) a MS TECH possuir suspeitas de que o Usuário prática ou praticou atos fraudulentos ou ilegais; e
+                    <br>
+                    (c) Caso não seja possível a verificação da identidade do Usuário, ou se os dados e informações
+                    fornecidos por ele
+                    estiverem incorretos.
+                    <br>
+                    10. Disposições Gerais
+                    <br>
+                    10.1. Qualquer cláusula ou condição destes Termos que, por qualquer razão, venha a ser reputada nula
+                    ou ineficaz
+                    por qualquer juízo ou tribunal, não afetará a validade das demais disposições destes Termos, as
+                    quais
+                    permanecerão plenamente válidas e vinculantes, gerando efeitos em sua máxima extensão.
+                    <br>
+                    10.2. A falha da MS TECH em exigir quaisquer direitos ou disposições destes Termos não constituirá
+                    renúncia,
+                    podendo este exercer regularmente o seu direito, dentro dos prazos legais.
+                    <br>
+                    10.3. Estes Termos são regidos exclusivamente pelas Leis da República Federativa do Brasil.
+    
+                    10.4. Os presentes Termos estão sujeitos a eventuais alterações, a qualquer tempo e a exclusivo
+                    critério da MS
+                    TECH, em função de mudanças legislativas, alterações no conteúdo dos Meios Digitais,
+                    disponibilização de novas
+                    tecnologias ou sempre que a MS TECH julgar necessário, sendo certo que a versão deste documento
+                    entrará em
+                    vigor quando de sua disponibilização nos Meios Digitais. Caberá ao Usuário examinar e inteirar-se
+                    das novas
+                    condições que eventualmente sejam propostas aos Termos.
+                    <br>
+                    10.4.1 Na hipótese de o Usuário não concordar com as alterações aplicadas pela MS TECH nos Termos,
+                    entender
+                    pela inviabilidade de cumprimento das disposições alteradas, ou deixar de realizar o seu
+                    consentimento, a MS TECH,
+                    a seu exclusivo critério, poderá realizar o cancelamento do ou inviabilizar o acesso Usuário aos
+                    conteúdos e serviços
+                    disponibilizados pela MS TECH, conforme condições especificadas nas Cláusulas 2.1.1 e 2.1.2 destes
+                    Termos.
+                    <br>
+                    11. Legislação e Foro
+                    <br>
+                    11.1 Fica eleito o foro da Comarca de São Paulo, Estado de São Paulo, para dirimir quaisquer dúvidas
+                    oriundas do
+                    presente Termo, podendo a MS TECH optar, a seu exclusivo critério, pelo foro de domicílio do
+                    Usuário.
+                    <br>
+                    <br>
+                    <b>AO CLICAR EM “ACEITO”, VOCÊ RECONHECE EXPRESSAMENTE QUE LEU, COMPREENDEU E TOMOU AS MEDIDAS
+                        PARA CONSIDERAR SERIAMENTE AS CONSEQUÊNCIAS DESTES TERMOS DE USO, AOS QUAIS SE COMPROMETE A
+                        FICAR OBRIGADO, E QUE É LEGALMENTE COMPETENTE ADERIR AOS PRESENTES TERMOS DE USO E POLÍTICA DE
+                        PRIVACIDADE.</b>
+                </p>
+                <br>
+                <br>
+    
+                <div class="has-text-centered">
+                    <button class="button is-button k-button k-primary raised has-gradient is-fat is-bold is-submit">
+                        <span class="text">Declaro que li e concordo com os Termos de Uso e Política de
+                            privacidade</span>
+                        <span class="front-gradient"></span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    
+        <!-- Hero footer -->
+        <div class="hero-foot">
+            <div class="container">
+                <div class="tabs is-centered">
+                    <!-- Client / partner list -->
+    
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a
+        href="javascript:" :class="{
+    'visible': scrolled,
+    '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+    
+    <footer class="krypton-footer">
+        <div class="container">
+            <!-- Logo -->
+            <div class="footer-logo">
+                <a href="#">
+                    <img class="logo-footer" src="/img/fn-logo/logo.png" alt="logo-mstech" style="height: 160px; max-width:100% ">
+                    <div class="brand-subtitle">É sobre modernidade em tecnologias financeiras</div>
+                </a>
+            </div>
+            
+    
+            </div>
+            <a 
+            href="https://goo.gl/maps/bDKghLbwjoY6cchS6"
+             class="location-link">
+             São Paulo/SP, na Rua Teodoro Sampaio, nº 399, conjunto 15, Pinheiros – CEP: 05405-000</a>
+            <br>
+            <!-- Made by -->
+            <a href="https://www.notalegal.df.gov.br/politica_de_privacidade.cfm" target="_blank">
+                Termos de uso e privacidade do Conta Legal
+            </a>
+        </div>
+    
+    </footer>    <!-- Back To Top Button -->
+    <div x-data="initBackToTop()" x-on:scroll.window="scroll($event)" @click="goTop($event)" id="backtotop"><a href="javascript:" :class="{
+        'visible': scrolled,
+        '': !scrolled
+    }"></a></div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./js/bundle.js"></script>
+
+</body>
+
+</html>
